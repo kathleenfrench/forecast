@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'config_env'
+require 'httparty'
 ConfigEnv.init("#{__dir__}/config/env.rb")
 
 set :port, 3000
