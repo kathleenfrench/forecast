@@ -1,7 +1,8 @@
 require 'sinatra'
 require './app.rb'
 
-use Rack::Static, :urls => ['/favicon.ico'], :root => 'public'
-4
+map "/favicon.ico" do
+	    run Rack::File.new("./public/favicon.ico")
+end
 
 run Sinatra::Application
