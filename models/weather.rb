@@ -20,4 +20,12 @@ class Weather
     # convert temp from kelvin to Farenheit
     (data['main']['temp'] * 9/5 - 459.67).round(2)
   end
+
+  def icons
+    data = weather_data
+    return [] if data.nil? || data['weather'].nil?
+    data['weather'].collect do |weather|
+      weather['icon'] + ".png"
+    end.uniq
+  end
 end
