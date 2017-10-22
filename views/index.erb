@@ -4,7 +4,18 @@
   </head>
 
   <body>
+    <main>
       <h2>the weather right now in brooklyn</h2>
       <h1><%= @temp %>&deg;</h1>
+    </main>
+    <footer>
+      <% @cities.each do |city| %>
+        <li><a href="/?city=<%= URI.escape(city) %>"><%= city %></a></li>
+      <% end %>
+      <p>
+        Built with <heart>❤️</heart>
+        by <a href="http://github.com/kathleenfrench">Kathleen French</a>
+      </p>
+    </footer>
   </body>
 </html>
