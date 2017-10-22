@@ -1,5 +1,6 @@
 require 'httparty'
 require 'uri'
+require 'redis'
 
 class Weather
   def initialize(city)
@@ -8,7 +9,7 @@ class Weather
 
   def weather_data
     if ! REDIS.get(@city).nil?
-      return JSON.parse(redis.get(@city))
+      return JSON.parse(REDIS.get(@city))
     else
       resp = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{URI.escape(@city)}&APPID=#{ENV['API_KEY']}")
       REDIS.set(@city, resp.body)
