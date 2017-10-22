@@ -29,3 +29,7 @@ get '/' do
   @icons = weather.icons
   erb :index
 end
+
+get '/favicon.ico' do
+  halt 404
+end
