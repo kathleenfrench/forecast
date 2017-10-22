@@ -3,6 +3,8 @@ require 'uri'
 require 'redis'
 
 class Weather
+  attr_accessor :city
+  
   def initialize(city)
     @city = city
   end
